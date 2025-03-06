@@ -32,7 +32,7 @@ model, scaler, selected_features = load_model()
 # 2. Streamlit App Title and Description
 st.title('Hospital Readmission Predictor')
 st.write('This application predicts the likelihood of hospital readmission within 30 days based on patient data.')
-st.write('A prototype developed by Rohit, Vishnu, Mary and Akmal')
+st.write('A prototype developed by Rohit, Vishnu, Mary and Akmal from 4CAI03.')
 
 st.header('Enter Patient Information')
 
