@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 import pickle
 
-# 1. Load Model and Scaler with Absolute Paths
+# 1. Load Model and Scaler using relative paths
 @st.cache_resource
 def load_model():
-    # Use absolute paths to locate final_model.pkl and scaler.pkl
-    with open(r"C:\Users\ROHIT D VIBHUTI\OneDrive\Desktop\hackathon project\Code\final_model.pkl", "rb") as f:
+    # Use relative paths; the files must be in the same folder as app.py (or adjust accordingly)
+    with open("final_model.pkl", "rb") as f:
         model = pickle.load(f)
-    with open(r"C:\Users\ROHIT D VIBHUTI\OneDrive\Desktop\hackathon project\Code\scaler.pkl", "rb") as f:
+    with open("scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
     
-    # List of features used when training the model
+    # List of features used during training
     selected_features = [
         'time_in_hospital',
         'num_lab_procedures',
@@ -88,13 +88,10 @@ input_data_scaled[numeric_cols] = scaler.transform(input_data[numeric_cols])
 # 6. Make Prediction on Button Click
 if st.button('Predict Readmission Risk'):
     prediction = model.predict(input_data_scaled)[0]
-    
-    # If model supports probabilities, display probability
     probability = None
     if hasattr(model, "predict_proba"):
         probability = model.predict_proba(input_data_scaled)[0][1]
     
-    # Display Results
     if prediction == 1:
         st.error('High Risk: Patient is likely to be readmitted within 30 days.')
     else:
