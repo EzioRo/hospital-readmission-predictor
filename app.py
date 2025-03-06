@@ -31,7 +31,7 @@ model, scaler, selected_features = load_model()
 # Set the app title and description
 st.title('Hospital Admission Predictor')
 st.write('This application predicts the likelihood of hospital admission within 30 days based on patient data.')
-
+st.write('This prototype is developed by Rohit, Vishnu, Mary and Akmal.')
 # Create input fields for user data
 st.header('Enter Patient Information')
 
