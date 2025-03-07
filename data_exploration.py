@@ -6,15 +6,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load the dataset using the specified file path
+# Load the dataset using the specified file path (all 25,000 rows are loaded)
 data = pd.read_csv(r'C:\Users\ROHIT D VIBHUTI\OneDrive\Desktop\hackathon project\Code\train.csv')
 
-# Display the dataset's shape (rows, columns)
+# Display the dataset's shape (should show 25,000 rows)
 print(f"Dataset shape: {data.shape}")
 
-# Preview the first 30 rows of the dataset
-print("\nFirst 30 rows:")
-print(data.head(30))
+# Optionally, display a small sample of the dataset (the full dataset is used in training)
+print("\nSample of the dataset:")
+print(data.head())
 
 # Check for missing values in each column
 print("\nMissing values per column:")
@@ -175,7 +175,6 @@ X_train[numeric_cols] = scaler.fit_transform(X_train[numeric_cols])
 X_test[numeric_cols] = scaler.transform(X_test[numeric_cols])
 
 print("\nData is now preprocessed and ready for modeling!")
-
 
 ########################################
 # Step 5: Model Development
